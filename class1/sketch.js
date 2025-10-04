@@ -4,6 +4,9 @@ let yMax = 600;
 let xRocket = xMax/2;
 let yRocket = yMax*0.4
 
+let xEye = xMax/2;
+let yEye = yMax*0.4
+
 function setup() {
   createCanvas(xMax, yMax);
 }
@@ -83,17 +86,25 @@ ellipse(xRocket+50, yRocket-10, 70, 70);
 
 //cerchio occhio nero sx
 fill(0);
-ellipse(xRocket-50, yRocket-10, 20, 20);
+ellipse(xEye-50, yEye-10, 20, 20);
 
 //cerchio occhio nero dx
 fill(0);
-ellipse(xRocket+50, yRocket-10, 20, 20);
+ellipse(xEye+50, yEye-10, 20, 20);
 
 //filo ragno
 fill(0);
-  line(200, 0, 200, 156)
+line(200, 0, 200, 156)
 
 pop()
+
+// xRocket = (xRocket + 1) % xMax;
+xEye = (xEye + 1);
+// quando la y sarà oltre una certa soglia, allora si resetta la yRocket
+let soglia = (xMax - 167);
+if (xEye >  soglia){
+  xEye = 160
+}
 
   }
 
